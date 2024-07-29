@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hungry Chef</title>
+<style>
+/* General Styles */
+body {
+  font-family: 'Crimson Text', serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #161313;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  box-sizing: border-box;
+  z-index: 100;
+  background-color: rgba(16, 14, 14, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 2em;
+  color: #fff;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0 20px;
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5em;
+}
+
+/* Hero Section Styles */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background: url('images/snapedit_1719820706246.jpg') no-repeat center center/cover;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  font-size: 1.5em;
+}
+
+.hero-content h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.5em;
+  margin-bottom: 40px;
+}
+
+.cta {
+  display: inline-block;
+  text-decoration: none;
+  color: #0a0909;
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cta:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* About Section Styles */
+.about-section {
+  background-image: url('https://i.pinimg.com/originals/3b/50/41/3b50412b82ce3079d984dceee7c44301.gif');
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
+  height: calc(90vh - 20px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 40px;
+  border-radius: 5px;
+  max-width: 600px;
+  text-align: center;
+}
+
+.about-box h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.about-box p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.about-box a {
+  display: inline-block;
+  background-color: #131415;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.about-box a:hover {
+  background-color: #13171b;
+}
+
+/* Services Section Styles */
+.services-section {
+  padding: 80px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;
+}
+
+.services-container {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.service a {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+.service a:hover {
+  background-color: #ddd;
+}
+
+.service p {
+  font-size: 1.2em;
+}
+
+/* Dropdown Menu Styles */
+nav ul li ul {
+  display: none;
+  position: absolute;
+  background-color: rgba(16, 14, 14, 0.9);
+  padding: 10px;
+  border-radius: 5px;
+  width: 150px;
+  left: -20px;
+  top: 30px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+nav ul li:hover > ul {
+  display: flex;
+}
+
+nav ul li ul li {
+  margin: 10px 0;
+}
+
+nav ul li ul li a {
+  font-size: 1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    padding: 20px 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    padding: 20px 20px;
+  }
+  .hero-content {
+    font-size: 1.2em;
+  }
+  .hero-content h1 {
+    font-size: 2.5em;
+  }
+  .hero-content p {
+    font-size: 2em;
+  }
+  .cta {
+    font-size: 1em;
+    padding: 8px 16px;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Hungry chef</div>
+  <nav>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li>
+        <a href="#">Menu</a>
+        <ul>
+          <li><a href="starters.html">Starters</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+          <li><a href="Beverages.html">Beverages</a></li>
+          <li><a href="Special Diets.html">Special Diets</a></li>
+        </ul> 
+      </li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>Taste the World</h1>
+    <p>Indulge in Flavors from Around the Globe</p>
+    <a href="#" class="cta">Explore</a>
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <div class="about-box">
+    <h2>About Us</h2>
+    <p>We are a team of 5 passionate individuals who came together to create a business that solves real problems for our customers.
+       Our diverse backgrounds and complementary skill sets allow us to approach challenges from multiple angles and deliver innovative solutions
+       Together, we are excited to take on this challenge and learn from the experience. We may be students, but we're committed to delivering a high-quality project that we can all be proud of. 
+        Stay tuned for updates on our progress!.</p>
+    <a href="#">Learn More</a>
+  </div>
+</section>
+
+<section class="services-section" id="services">
+  <div class="services-container">
+    <div class="service">
+      <a href="Reviews and Testimonials.html" style="background-image: url('https://i.pinimg.com/originals/00/7e/e9/007ee942c37e381767e4af0f1c619ab8.gif');"></a>
+      <p>Reviews and Testimonials</p>
+    </div>
+    <div class="service">
+      <a href="Live Chat or Support.html" style="background-image: url('https://i.pinimg.com/originals/ce/ba/34/ceba346bb202efd59acbca3db67c0d97.gif');"></a>
+      <p>Live Chat or Support</p>
+    </div>
+    <div class="service">
+      <a href="Live Chat or Support.html" style="background-image: url('https://i.pinimg.com/originals/c6/3f/19/c63f194cb6616f52548ba51a3572515f.gif');"></a>
+      <p>CURATED RECIPES</p>
+    </div>
+    <div class="service">
+      <a href="Live Chat or Support.html" style="background-image: url('https://i.pinimg.com/originals/cc/81/d6/cc81d6266c78c9a520b03909142a0057.gif');"></a>
+      <p>Ingredient Insights: </p>
+      
+    </div>
+   
+</section>
+
+<script>
+  // Smooth scrolling function
+  function smoothScroll(target, duration) {
+    var targetElement = document.querySelector(target);
+    var targetPosition = targetElement.getBoundingClientRect().top;
+    var startPosition = window.pageYOffset;
+    var distance = targetPosition - startPosition;
+    var startTime = null;
+
+    function animation(currentTime) {
+      if (startTime === null) startTime = currentTime;
+      var timeElapsed = currentTime - startTime;
+      var run = ease(timeElapsed, startPosition, distance, duration);
+      window.scrollTo(0, run);
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    function ease(t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return (c / 2) * t * t + b;
+      t--;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
+  }
+
+  // Attach click event listeners to navigation links
+  var navLinks = document.querySelectorAll('nav ul li a');
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      var target = event.target.getAttribute('href');
+      if (target.startsWith('#')) {
+        smoothScroll(target, 1000);
+      } else {
+        window.location.href = target;
+      }
+    });
+  });
+</script>
+</body>
+</html>
